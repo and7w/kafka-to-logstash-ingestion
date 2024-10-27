@@ -1,0 +1,11 @@
+spring:
+  cloud:
+    stream:
+      binders:
+        kafka-local:
+          type: kafka
+          environment:
+            spring.cloud.stream.kafka.binder:
+              brokers: localhost:29092
+              configuration:
+                security.protocol: PLAINTEXT

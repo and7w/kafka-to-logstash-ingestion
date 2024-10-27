@@ -1,2 +1,41 @@
 server:
   port: 8081
+spring:
+  config:
+    import: classpath:kafka-scs-local.yml
+
+  cloud:
+    function:
+      definition: eventProducer;eventConsumer
+    stream:
+      bindings:
+        eventProducer-out-0:
+          destination: event-topic
+          group: pocmaster
+          binder: kafka-local #this must match a binder in binders defined in spring.cloud.stream.binders section
+          producer:
+            use-native-encoding: true
+
+
+        eventConsumer-in-0:
+          destination: event-topic
+          group: pocmaster
+          binder: kafka-local #this must match a binder in binders defined in spring.cloud.stream.binders section
+          consumer:
+            use-native-decoding: true
+            concurrency: 1
+
+      kafka:
+        bindings:
+          eventProducer-out-0:
+            producer:
+              configuration:
+                value.serializer: com.pocmaster.demo.serializer.MessageSerializer
+          eventConsumer-in-0:
+            consumer:
+              configuration:
+                value.deserializer: com.pocmaster.demo.serializer.MessageDeSerializer
+
+logging:
+  level:
+    org.springframework.cloud.context.config: DEBUG
