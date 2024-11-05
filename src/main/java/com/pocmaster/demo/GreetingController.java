@@ -8,6 +8,6 @@ public class GreetingController {
 
     @GetMapping("/salutation")
     public String getMessage() {
-        return "Thank you...POCMaster man";
+        return "Thank you...POCMaster man 3";
     }
 }

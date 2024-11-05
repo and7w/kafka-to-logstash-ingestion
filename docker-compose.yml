@@ -6,4 +6,4 @@ services:
       dockerfile: Dockerfile
     image: kafka-to-logstash-ingestion:latest
     ports:
-      - 8887:8081
+      - "8887:8081"

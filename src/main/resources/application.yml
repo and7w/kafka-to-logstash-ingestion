@@ -10,7 +10,7 @@ spring:
     stream:
       bindings:
         eventProducer-out-0:
-          destination: event-topic
+          destination: pm-events
           group: pocmaster
           binder: kafka-local #this must match a binder in binders defined in spring.cloud.stream.binders section
           producer:
@@ -18,7 +18,7 @@ spring:
 
 
         eventConsumer-in-0:
-          destination: event-topic
+          destination: pm-events
           group: pocmaster
           binder: kafka-local #this must match a binder in binders defined in spring.cloud.stream.binders section
           consumer:

@@ -1,13 +1,12 @@
 package com.pocmaster.demo.service;
 
 import com.pocmaster.demo.model.PMEvent;
+import com.pocmaster.demo.utils.PMEventGenerator;
 import lombok.Getter;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.cloud.stream.function.StreamBridge;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
-
-import java.util.UUID;
 
 @Log4j2
 @Getter
@@ -23,12 +22,11 @@ public class EventProducer  {
     }
 
 
-    @Scheduled(cron = "*/2 * * * * *")
+    @Scheduled(cron = "*/5 * * * * *")
     public void sendMessage(){
-        PMEvent pmEvent = PMEvent.builder().key(UUID.randomUUID().toString()).build();
+        log.info("test");
+        PMEvent pmEvent = PMEventGenerator.generateRandomEvent();
         streamBridge.send(TOPIC, pmEvent);
         log.info("sending new poc master envent with uuid {}", pmEvent.key());
     }
-
-
 }
