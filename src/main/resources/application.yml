@@ -36,6 +36,9 @@ spring:
               configuration:
                 value.deserializer: com.pocmaster.demo.serializer.MessageDeSerializer
 
-logging:
-  level:
-    org.springframework.cloud.context.config: DEBUG
+
+
+app:
+  task:
+    schedule:
+      fixed-delay: 5_000
