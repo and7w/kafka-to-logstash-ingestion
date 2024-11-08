@@ -250,10 +250,16 @@ services:
       KAFKA_CLUSTERS_0_ZOOKEEPER: zookeeper:2181
 
   app-spring:
+    depends_on:
+      - kafka
+      - logstash01
     container_name: kafka-to-logstash-ingestion
     build:
       context: ..
       dockerfile: Dockerfile
     image: kafka-to-logstash-ingestion:latest
+    environment:
+      - APP_NAME=kafka-to-logstash-ingestion
+      - ENVIRONMENT=staging
     ports:
       - "8887:8081"
