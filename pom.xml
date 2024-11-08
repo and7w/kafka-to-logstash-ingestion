@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>com.pocmaster</groupId>
 	<artifactId>kafka-to-logstash-ingestion</artifactId>
-	<version>1.0.3</version>
+	<version>1.0.17</version>
 	<name>kafka-to-logstash-ingestion</name>
 	<description>Demo Logstah Ingestion from Kafka</description>
 
@@ -57,6 +57,19 @@
 			<artifactId>lombok</artifactId>
 			<optional>true</optional>
 		</dependency>
+
+		<dependency>
+			<groupId>net.logstash.logback</groupId>
+			<artifactId>logstash-logback-encoder</artifactId>
+			<version>8.0</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.fasterxml.jackson.datatype</groupId>
+			<artifactId>jackson-datatype-jsr310</artifactId>
+		</dependency>
+
+
 
 		<!-- Faker dependency -->
 		<dependency>

@@ -14,7 +14,6 @@ import org.springframework.stereotype.Component;
 public class EventProducer  {
 
     public static final String TOPIC = "eventProducer-out-0";
-
     private final StreamBridge streamBridge;
 
     public EventProducer(StreamBridge streamBridge) {
@@ -22,11 +21,10 @@ public class EventProducer  {
     }
 
 
-    @Scheduled(cron = "*/5 * * * * *")
+    @Scheduled(fixedDelayString = "${app.task.schedule.fixed-delay}")
     public void sendMessage(){
-        log.info("test");
         PMEvent pmEvent = PMEventGenerator.generateRandomEvent();
         streamBridge.send(TOPIC, pmEvent);
-        log.info("sending new poc master envent with uuid {}", pmEvent.key());
+        log.info("sending new poc master event with uuid {}", pmEvent.key());
     }
 }

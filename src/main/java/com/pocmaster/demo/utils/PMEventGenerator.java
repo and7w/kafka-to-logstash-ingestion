@@ -3,6 +3,7 @@ package com.pocmaster.demo.utils;
 import com.github.javafaker.Faker;
 import com.pocmaster.demo.model.PMEvent;
 
+import java.time.LocalDateTime;
 import java.util.UUID;
 
 public class PMEventGenerator {
@@ -13,7 +14,7 @@ public class PMEventGenerator {
                 .key(UUID.randomUUID().toString())
                 .eventName(faker.book().title())
                 .eventLocation(faker.address().fullAddress())
-                //.eventDate(OffsetDateTime.now())
+                .eventDate(LocalDateTime.now())
                 .eventDescription(faker.lorem().sentence())
                 .attendeesCount((long) faker.number().numberBetween(10, 200))
                 .build();
