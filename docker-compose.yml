@@ -1,9 +1,0 @@
-services:
-  kafka-elk:
-    container_name: kafka-to-logstash-ingestion
-    build:
-      context: .
-      dockerfile: Dockerfile
-    image: kafka-to-logstash-ingestion:latest
-    ports:
-      - "8887:8081"
