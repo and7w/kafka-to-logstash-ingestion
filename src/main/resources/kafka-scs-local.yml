@@ -6,6 +6,6 @@ spring:
           type: kafka
           environment:
             spring.cloud.stream.kafka.binder:
-              brokers: kafka:29092
+              brokers: kafka:9092
               configuration:
                 security.protocol: PLAINTEXT

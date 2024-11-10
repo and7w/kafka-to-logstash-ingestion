@@ -13,7 +13,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class EventProducer  {
 
-    public static final String TOPIC = "eventProducer-out-0";
+    public static final String TOPIC = "pm-events";
     private final StreamBridge streamBridge;
 
     public EventProducer(StreamBridge streamBridge) {

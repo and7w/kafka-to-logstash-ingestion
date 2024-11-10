@@ -1,0 +1,18 @@
+version: "3.8"
+
+networks:
+  pocmaster-network:
+    external: true
+
+services:
+  app-spring:
+    build:
+      context: ..
+      dockerfile: Dockerfile
+    image: kafka-to-logstash-ingestion:latest
+    environment:
+      - APP_NAME=kafka-to-logstash-ingestion
+      - ENVIRONMENT=staging
+    ports:
+      - "8887:8081"
+    container_name: kafka-to-logstash-ingestion
