@@ -9,10 +9,10 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.pocmaster</groupId>
-	<artifactId>kafka-to-logstash-ingestion</artifactId>
+	<artifactId>logstash-ingestion</artifactId>
 	<version>1.0.18</version>
-	<name>kafka-to-logstash-ingestion</name>
-	<description>Demo Logstah Ingestion from Kafka</description>
+	<name>logstash-ingestion</name>
+	<description>Logstah Ingestion</description>
 
 	<properties>
 		<java.version>17</java.version>

@@ -18,6 +18,6 @@ public class EventConsumer implements Consumer<PMEvent> {
 
     @Override
     public void accept(PMEvent pmEvent) {
-        log.info("Consumer consume Kafka message -> {}", pmEvent);
+        log.debug("Consumer consume Kafka message -> {}", pmEvent);
     }
 }

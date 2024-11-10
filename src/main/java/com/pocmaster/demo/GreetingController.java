@@ -6,8 +6,8 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class GreetingController {
 
-    @GetMapping("/salutation")
+    @GetMapping("/whoami")
     public String getMessage() {
-        return "Thank you...POCMaster man 3";
+        return "POCMaster: -  Logstash Ingestion with kafka and Log4j2";
     }
 }
