@@ -51,6 +51,9 @@ Avant de commencer, assurez-vous d'avoir installé et configuré les éléments 
 
 L'ensemble des services (Kafka, Logstash, Elasticsearch et l'application Spring) est géré dans un **réseau Docker** pour simplifier l'intégration et le déploiement.
 
+[Logstash Ingestion](logstash-ingestion.png)
+
+
 ---
 
 ## **Installation**
