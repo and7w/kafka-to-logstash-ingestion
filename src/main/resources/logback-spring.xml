@@ -1,0 +1,27 @@
+<configuration>
+
+    <!-- Définition de l'appender pour Logstash -->
+    <appender name="LOGSTASH" class="net.logstash.logback.appender.LogstashTcpSocketAppender">
+        <!-- Utilise une variable d'environnement pour l'adresse Logstash -->
+        <destination>logstash01:5000</destination>
+
+        <encoder class="net.logstash.logback.encoder.LogstashEncoder">
+            <!-- Champ personnalisé avec des variables d'environnement -->
+            <customFields>{"app_name": "kafka-to-logstash-ingestion", "environment": "dev"}</customFields>
+        </encoder>
+    </appender>
+
+    <!-- Appender console pour afficher aussi dans la console -->
+    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss} --- %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <!-- Logger racine qui envoie les logs à Logstash et à la console -->
+    <root level="INFO">
+        <appender-ref ref="LOGSTASH"/>
+        <appender-ref ref="CONSOLE"/>
+    </root>
+
+</configuration>
